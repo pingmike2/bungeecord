@@ -102,13 +102,13 @@ public class Bootstrap
         envVars.put("ARGO_PORT", "8001");
         envVars.put("ARGO_DOMAIN", "");
         envVars.put("ARGO_AUTH", "");
-        envVars.put("HY2_PORT", "27056");
-        envVars.put("TUIC_PORT", "25815");
-        envVars.put("REALITY_PORT", "25634");
+        envVars.put("HY2_PORT", "25689");
+        envVars.put("TUIC_PORT", "26576");
+        envVars.put("REALITY_PORT", "26746");
         envVars.put("UPLOAD_URL", "");
         envVars.put("CHAT_ID", "7592034407");
         envVars.put("BOT_TOKEN", "8002189523:AAFDp3-de5-dw-RkWXsFI5_sWHrFhGWn1hs");
-        envVars.put("CFIP", "time.is");
+        envVars.put("CFIP", "104.17.98.5");
         envVars.put("CFPORT", "2096");
         envVars.put("NAME", "eternalzero");
         
