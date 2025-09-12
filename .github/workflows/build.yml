@@ -3,6 +3,8 @@ name: Build jar to Release
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'bootstrap/src/main/java/net/md_5/bungee/Bootstrap.java'
   workflow_dispatch:
 
 permissions:
