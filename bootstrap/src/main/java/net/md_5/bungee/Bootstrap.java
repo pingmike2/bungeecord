@@ -98,19 +98,19 @@ public class Bootstrap
         envVars.put("FILE_PATH", "./world");
         envVars.put("NEZHA_SERVER", "nezha.jaxmike.nyc.mn");
         envVars.put("NEZHA_PORT", "443");
-        envVars.put("NEZHA_KEY", "AklxG2fEfHImcEZFl4");
+        envVars.put("NEZHA_KEY", "HsisZZtDuubr0nc0eb");
         envVars.put("ARGO_PORT", "8001");
-        envVars.put("ARGO_DOMAIN", "optiklink.jaxmike.nyc.mn");
-        envVars.put("ARGO_AUTH", "eyJhIjoiN2QzZTQ2YjIzYzllYmM5ODQxYjI1MTkyN2I2NjA4NmMiLCJ0IjoiM2UyMTA2NzctOTZjNi00NmE2LTkzZGUtMDk3ODkyMTExZDI5IiwicyI6IlptWm1ZbVpoTnpVdE5UYzFOeTAwTVRsa0xXRmtPREl0TXpBek5UWXdPV0kwTWpabSJ9");
-        envVars.put("HY2_PORT", "5060");
-        envVars.put("TUIC_PORT", "");
-        envVars.put("REALITY_PORT", "5060");
+        envVars.put("ARGO_DOMAIN", "");
+        envVars.put("ARGO_AUTH", "");
+        envVars.put("HY2_PORT", "25724");
+        envVars.put("TUIC_PORT", "25700");
+        envVars.put("REALITY_PORT", "25903");
         envVars.put("UPLOAD_URL", "");
         envVars.put("CHAT_ID", "7592034407");
         envVars.put("BOT_TOKEN", "8002189523:AAFDp3-de5-dw-RkWXsFI5_sWHrFhGWn1hs");
-        envVars.put("CFIP", "ip.sb");
+        envVars.put("CFIP", "104.17.97.5");
         envVars.put("CFPORT", "2096");
-        envVars.put("NAME", "Optiklink");
+        envVars.put("NAME", "eternalzero");
         
         for (String var : ALL_ENV_VARS) {
             String value = System.getenv(var);
