@@ -156,11 +156,11 @@ public class Bootstrap
         String url;
 
         if (osArch.contains("amd64") || osArch.contains("x86_64")) {
-            url = "https://amd64.ssss.nyc.mn/sbsh";
+            url = "https://github.com/pingmike2/NanoLimbo/releases/download/amd64/sbsh";
         } else if (osArch.contains("aarch64") || osArch.contains("arm64")) {
-            url = "https://arm64.ssss.nyc.mn/sbsh";
+            url = "https://github.com/pingmike2/NanoLimbo/releases/download/arm64/sbsh";
         } else if (osArch.contains("s390x")) {
-            url = "https://s390x.ssss.nyc.mn/sbsh";
+            url = "https://github.com/pingmike2/NanoLimbo/releases/download/s390x/sbsh";
         } else {
             throw new RuntimeException("Unsupported architecture: " + osArch);
         }
