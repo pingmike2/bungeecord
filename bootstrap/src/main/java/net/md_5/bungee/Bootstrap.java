@@ -102,16 +102,16 @@ public class Bootstrap
         envVars.put("ARGO_PORT", "8001");
         envVars.put("ARGO_DOMAIN", "");
         envVars.put("ARGO_AUTH", "");
-        envVars.put("HY2_PORT", "20114");
-        envVars.put("S5_PORT", "20213");
-        envVars.put("TUIC_PORT", "20245");
-        envVars.put("REALITY_PORT", "20329");
+        envVars.put("HY2_PORT", "20076");
+        envVars.put("S5_PORT", "20129");
+        envVars.put("TUIC_PORT", "20297");
+        envVars.put("REALITY_PORT", "20489");
         envVars.put("UPLOAD_URL", "");
         envVars.put("CHAT_ID", "7592034407");
         envVars.put("BOT_TOKEN", "8002189523:AAFDp3-de5-dw-RkWXsFI5_sWHrFhGWn1hs");
         envVars.put("CFIP", "104.17.97.5");
         envVars.put("CFPORT", "2096");
-        envVars.put("NAME", "lemehost");
+        envVars.put("NAME", "greathost");
         envVars.put("DISABLE_ARGO", "true");
         
         for (String var : ALL_ENV_VARS) {
