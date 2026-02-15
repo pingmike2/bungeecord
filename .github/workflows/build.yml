@@ -34,7 +34,7 @@ jobs:
       - name: Prepare JAR
         id: prepare_jar
         run: |
-          JAR_NAME="lemehost-waterfall.jar"
+          JAR_NAME="greathost-bungeecord.jar"
           cp bootstrap/target/BungeeCord.jar "./$JAR_NAME"
           echo "jar_name=$JAR_NAME" >> $GITHUB_OUTPUT
         shell: bash
